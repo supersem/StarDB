@@ -9,6 +9,15 @@ import ItemDetails, { Record } from '../item-details/item-details';
 import Row from '../row/row';
 import ErrorBoundry from '../error-boundry/error-boundry';
 
+import {
+  PersonDetails,
+  PlanetDetails,
+  StarshipDetails,
+  PersonList,
+  PlanetList,
+  StarshipList
+} from '../sw-components';
+
 import './app.css';
 
 export default class App extends Component {
@@ -51,7 +60,9 @@ export default class App extends Component {
     const {getPerson,
            getStarship,
            getPersonImage,
-           getStarshipImage} = this.swapiService;
+           getStarshipImage,
+           getAllPeople,
+           getAllPlanets} = this.swapiService;
 
     const personDetails = (
       <ItemDetails
@@ -81,10 +92,17 @@ export default class App extends Component {
         <div className="stardb-app">
           <Header />
 
+          <PersonDetails itemId={11} />
 
-          <Row
-            left={personDetails}
-            right={starshipDetails} />
+          <PlanetDetails itemId={5} />
+
+          <StarshipDetails itemId={9} />
+
+          <PersonList />
+
+          <StarshipList />
+
+          <PlanetList />
         </div>
       </ ErrorBoundry>
     );
